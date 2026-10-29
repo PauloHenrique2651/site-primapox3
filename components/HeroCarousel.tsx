@@ -5,10 +5,10 @@ import { useState } from "react";
 import { HeroBackgroundVideo } from "@/components/HeroBackgroundVideo";
 import styles from "@/app/home.module.css";
 
-export type Swatch = { name: string; color: string; src: string; caption: string };
+export type Swatch = { name: string; color: string; src: string };
 
-// Full-bleed hero background: the HyperFrames finishes film plays by default; the colour chart
-// at the bottom swaps the background for one real finish photo.
+// Full-bleed hero background: the HyperFrames film plays by default; colour chips swap in a real
+// finish photo. Chips carry no visible text (names are for assistive technology only).
 export function HeroCarousel({ swatches, video }: { swatches: Swatch[]; video: { src: string; poster: string } }) {
   const [selected, setSelected] = useState(-1);
   const active = selected >= 0 ? swatches[selected] : null;
@@ -25,17 +25,10 @@ export function HeroCarousel({ swatches, video }: { swatches: Swatch[]; video: {
       </div>
       <div className={styles.chartBar}>
         <div className={`shell ${styles.chart}`}>
-          <p className={styles.chartLabel} aria-live="polite">{active ? active.caption : "Acabamentos do acervo Primapox"}</p>
-          <div className={styles.swatches} role="group" aria-label="Escolher acabamento">
-            <button type="button" aria-pressed={selected === -1} onClick={() => setSelected(-1)} style={{ "--swatch": "conic-gradient(#002398 0 50%, #fd0100 0)" } as React.CSSProperties}>
-              <span aria-hidden="true" />
-              Vídeo
-            </button>
+          <div className={`${styles.swatches} ${styles.chipsOnly}`} role="group" aria-label="Cores">
+            <button type="button" aria-pressed={selected === -1} aria-label="Vídeo" onClick={() => setSelected(-1)} style={{ "--swatch": "conic-gradient(#002398 0 50%, #fd0100 0)" } as React.CSSProperties}><span aria-hidden="true" /></button>
             {swatches.map((swatch, position) => (
-              <button key={swatch.name} type="button" aria-pressed={position === selected} onClick={() => setSelected(position)} style={{ "--swatch": swatch.color } as React.CSSProperties}>
-                <span aria-hidden="true" />
-                {swatch.name}
-              </button>
+              <button key={swatch.name} type="button" aria-pressed={position === selected} aria-label={swatch.name} onClick={() => setSelected(position)} style={{ "--swatch": swatch.color } as React.CSSProperties}><span aria-hidden="true" /></button>
             ))}
           </div>
         </div>
