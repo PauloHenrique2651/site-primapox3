@@ -1,90 +1,17 @@
-.footer {
-  color: var(--ink);
-  background: var(--porcelain);
-}
-
-.top {
-  --logo-width: clamp(220px, 22vw, 300px);
-  display: grid;
-  grid-template-columns: 1.3fr .7fr 1fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  padding-block: clamp(3.5rem, 6vw, 5.5rem);
-}
-
-.brandCol p {
-  max-width: 400px;
-  margin: 1.5rem 0 0;
-  color: var(--muted);
-  font-size: 1.05rem;
-  line-height: 1.6;
-}
-
-.social {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .6rem;
-  margin: 1.5rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.social a {
-  display: inline-flex;
-  min-height: 44px;
-  align-items: center;
-  padding: 0 1rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-}
-
-.links {
-  display: grid;
-  align-content: start;
-  gap: .75rem;
-  font-size: 1.05rem;
-}
-
+/* Dark charcoal footer matching the Ezy Color header. */
+.footer { color: #cfcfcf; background: #2b2b2b; }
+.top { --logo-width: clamp(170px, 16vw, 220px); display: grid; grid-template-columns: 1.2fr .8fr 1fr; gap: clamp(2rem, 5vw, 4rem); padding-block: clamp(3rem, 6vw, 4.5rem); }
+.brandCol :global(a) { display: inline-flex; padding: 8px 12px; background: #fff; border-radius: 4px; }
+.brandCol p { max-width: 380px; margin: 1.25rem 0 0; color: #a3a3a3; font-size: .9rem; line-height: 1.6; }
+.social { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1.25rem 0 0; padding: 0; list-style: none; }
+.links { display: grid; align-content: start; gap: .7rem; font-size: .85rem; letter-spacing: .06em; text-transform: uppercase; }
 .links a { width: fit-content; }
-.links a:hover, .phones a:hover, .route:hover { color: var(--brand-blue); }
-
-.contact p { margin: 0 0 .9rem; color: var(--muted); font-size: 1rem; line-height: 1.6; }
-.contact .label { color: var(--ink); font-weight: 600; }
-
-.mail {
-  display: inline-block;
-  margin-bottom: 1.25rem;
-  font: 700 clamp(1.3rem, 2vw, 1.7rem)/1.2 var(--font-display);
-  overflow-wrap: anywhere;
-}
-
-.mail:hover { color: var(--brand-blue); }
-.phones { display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
-
-.route {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.bottom {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-block: 1.5rem;
-  color: var(--muted);
-  border-top: 1px solid var(--line);
-  font-size: .92rem;
-}
-
-@media (max-width: 900px) {
-  .top { grid-template-columns: 1fr 1fr; }
-  .brandCol { grid-column: 1 / -1; }
-}
-
-@media (max-width: 560px) {
-  .top { grid-template-columns: 1fr; }
-  .bottom { flex-direction: column; }
-}
+.links a:hover, .route:hover { color: #ff8a8a; }
+.contact p { margin: 0 0 .6rem; color: #a3a3a3; font-size: .92rem; line-height: 1.6; }
+.contact .label { color: #fff; font-size: .8rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+.mail { display: inline-block; margin-bottom: 1rem; color: #fff; font-size: 1.05rem; font-weight: 600; overflow-wrap: anywhere; }
+.route { display: inline-flex; align-items: center; min-height: 40px; margin-top: .5rem; padding: 0 1.4rem; color: #fff; border: 1px solid rgba(255,255,255,.5); border-radius: 4px; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
+.bottom { display: flex; justify-content: space-between; gap: 1rem; padding-block: 1.2rem; color: #8f8f8f; border-top: 1px solid rgba(255,255,255,.1); font-size: .85rem; }
+.bottom a:hover { color: #fff; }
+@media (max-width: 900px) { .top { grid-template-columns: 1fr 1fr; } .brandCol { grid-column: 1 / -1; } }
+@media (max-width: 560px) { .top { grid-template-columns: 1fr; } .bottom { flex-direction: column; } }

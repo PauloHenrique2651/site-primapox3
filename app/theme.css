@@ -1,6 +1,8 @@
 /* Proposta 03 — inspirada na Ezy Color: moderna, sofisticada, orientada aos acabamentos.
    Base clara para que as cores reais das peças sejam o destaque. */
 :root {
+  --font-display: var(--font-poppins);
+  --font-body: var(--font-poppins);
   --navy-deep: #0b1650;
   --mist: #f4f6fb;
   --ink: #101a3d;
@@ -22,7 +24,7 @@
   --body: var(--font-body), "Segoe UI", Arial, sans-serif;
   --mono: var(--font-body), "Segoe UI", Arial, sans-serif;
 
-  --header-h: 132px;
+  --header-h: 104px;
   --shell: min(90vw, 1360px);
   --type-hero: clamp(2.5rem, 4.6vw, 4.4rem);
   --type-section: clamp(2rem, 3.4vw, 3.1rem);
@@ -100,8 +102,8 @@ main { padding-top: var(--header-h); }
 .quote-form input, .quote-form select, .quote-form textarea { font-size: 1.05rem; }
 .quote-form__submit p { font-size: .92rem; }
 
-@media (max-width: 1100px) { :root { --header-h: 98px; } }
-@media (max-width: 640px) { :root { --header-h: 90px; } }
+@media (max-width: 1100px) { :root { --header-h: 88px; } }
+@media (max-width: 640px) { :root { --header-h: 80px; } }
 
 /* Palette pass for inner pages */
 .content-section { background: var(--mist); }
@@ -112,3 +114,6 @@ main { padding-top: var(--header-h); }
 .resin-section { background: #fff; }
 .contact-band { background: var(--navy-deep); }
 .process-principle { background: var(--red); }
+
+/* Ezy Color reverse engineering: Poppins, 4px radii, small spaced uppercase labels */
+.button { border-radius: 4px !important; }
