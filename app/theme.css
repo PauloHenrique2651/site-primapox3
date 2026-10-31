@@ -1,6 +1,7 @@
 /* Proposta 03 — inspirada na Ezy Color: moderna, sofisticada, orientada aos acabamentos.
    Base clara para que as cores reais das peças sejam o destaque. */
 :root {
+  --footer-bg: #2b2b2b; --form-bg: #fff; --form-button: var(--red); --form-radius: 4px;
   --font-display: var(--font-poppins);
   --font-body: var(--font-poppins);
   --navy-deep: #0b1650;

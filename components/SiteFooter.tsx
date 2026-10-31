@@ -1,33 +1,18 @@
-import Link from "next/link";
 import { BrandMark } from "@/components/BrandMark";
-import { SocialLinks } from "@/components/SocialLinks";
-import { company, navigation } from "@/data/site";
-import { contact, footerRights, home } from "@/data/primapox";
+import { footerLines, footerRights } from "@/data/primapox";
 import styles from "./SiteFooter.module.css";
 
+// Footer text exactly as the legacy primapox.com footer (rdp.gif). The logo sits directly on the
+// background: only the cloud itself is white.
 export function SiteFooter() {
   return (
     <footer className={styles.footer} id="rodape">
-      <div className={`shell ${styles.top}`}>
-        <div className={styles.brandCol}>
-          <BrandMark className={styles.brand} sizes="(max-width: 800px) 240px, 320px" />
-          <p>{footerRights}</p>
-          <SocialLinks className={styles.social} />
+      <div className={`shell ${styles.inner}`}>
+        <BrandMark className={styles.brand} sizes="(max-width: 800px) 180px, 220px" />
+        <div className={styles.text}>
+          <p className={styles.rights}>{footerRights}</p>
+          {footerLines.map((line) => <p key={line}>{line}</p>)}
         </div>
-        <nav className={styles.links} aria-label="Navegação do rodapé">
-          {navigation.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
-        </nav>
-        <div className={styles.contact}>
-          <p className={styles.label}>{home.contactTitle}</p>
-          <a className={styles.mail} href={`mailto:${contact.email}`}>{contact.email}</a>
-          {contact.phoneLines.map((line) => <p key={line}>{line}</p>)}
-          {contact.addressLines.map((line) => <p key={line}>{line}</p>)}
-          <a className={styles.route} href={company.mapsUrl} target="_blank" rel="noopener noreferrer">{home.locationTitle}</a>
-        </div>
-      </div>
-      <div className={`shell ${styles.bottom}`}>
-        <span>{footerRights}</span>
-        <Link href="/politica-de-privacidade">Política de privacidade</Link>
       </div>
     </footer>
   );
